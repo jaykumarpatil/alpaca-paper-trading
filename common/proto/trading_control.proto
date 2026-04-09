@@ -1,0 +1,11 @@
+syntax = "proto3";
+package com.alpaca.hft.proto;
+
+service TradingControlService {
+  rpc StartStrategy(StartStrategyRequest) returns (Ack);
+  rpc StopStrategy(StopStrategyRequest) returns (Ack);
+}
+
+message StartStrategyRequest { string strategy_id = 1; }
+message StopStrategyRequest { string strategy_id = 1; }
+message Ack { string message = 1; }

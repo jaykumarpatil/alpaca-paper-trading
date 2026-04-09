@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: alpha-engine-service
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus

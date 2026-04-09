@@ -1,0 +1,41 @@
+topics:
+  - name: md.quotes.v1
+    partitions: 64
+    replicationFactor: 3
+    key: symbol
+  - name: md.trades.v1
+    partitions: 64
+    replicationFactor: 3
+    key: symbol
+  - name: md.bars.v1
+    partitions: 32
+    replicationFactor: 3
+    key: symbol
+  - name: alpha.signals.v1
+    partitions: 64
+    replicationFactor: 3
+    key: strategyId
+  - name: alpha.position-intents.v1
+    partitions: 64
+    replicationFactor: 3
+    key: strategyId
+  - name: risk.decisions.v1
+    partitions: 64
+    replicationFactor: 3
+    key: strategyId
+  - name: oms.orders.v1
+    partitions: 32
+    replicationFactor: 3
+    key: symbol
+  - name: oms.exec-reports.v1
+    partitions: 32
+    replicationFactor: 3
+    key: symbol
+  - name: portfolio.updates.v1
+    partitions: 16
+    replicationFactor: 3
+    key: strategyId
+  - name: backtest.tasks.v1
+    partitions: 128
+    replicationFactor: 3
+    key: strategyId
