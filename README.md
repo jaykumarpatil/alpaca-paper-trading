@@ -1,5 +1,19 @@
 # Production-Grade HFT Trading Platform Roadmap (Java 25 / Spring Boot 4)
 
+## Implementation Status
+
+This repository now includes concrete foundation artifacts from the roadmap:
+
+- Canonical event schemas in `schemas/` (market data, signal, risk, OMS, portfolio).
+- Kafka topic and consumer-profile standards in `kafka/topics.yaml`.
+- Kafka bootstrap helper script in `kafka/bootstrap-topics.sh`.
+- Service boundary specification in `services/README.md`.
+- Kubernetes safety primitives for priority and disruption budgets in `k8s/base/`.
+- CI guardrail workflow in `.github/workflows/platform-guardrails.yml`.
+- Execution backlog in `docs/IMPLEMENTATION_BACKLOG.md`.
+
+---
+
 ## 1) Target Architecture (Service Decomposition)
 
 - **Market Data Ingestion Service (hot path + cold path):** Connects to Alpaca’s Market Data v2 API (via HTTP/WebSocket) for real-time equity (and crypto) ticks, quotes and bars.  It normalizes all raw feeds into canonical events (e.g. `InstrumentEvent`, `TradeEvent`, `QuoteEvent`, `BarEvent`) and enforces sequence integrity and watermarking.  Events are published immutably to Kafka topics (partitioned by symbol/venue) for downstream consumption.  A hot-path in-memory cache (e.g. Redis or Aeron) can hold the latest quote book for ultra-low-latency lookups, while a cold-path writes data to a time-series database (QuestDB) and object storage (Parquet files) for analytics and historical replay【25†L28-L33】【51†L153-L160】.  QuestDB is designed for extreme time-series performance (trading floors, mission-control), with *“ultra-low latency [and] high ingestion throughput”* and native Parquet/SQL support【25†L28-L33】.  For longer-term reference and complex joins (e.g. audit or order history), TimescaleDB (Postgres extension) is used: it provides PostgreSQL-level relational features with hypertables and compression for time-series workloads【28†L183-L191】. 

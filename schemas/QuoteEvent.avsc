@@ -1,0 +1,20 @@
+{
+  "type": "record",
+  "name": "QuoteEvent",
+  "namespace": "com.alpaca.hft.events.v1",
+  "fields": [
+    {"name": "eventId", "type": "string"},
+    {"name": "eventType", "type": "string", "default": "QuoteEvent"},
+    {"name": "eventVersion", "type": "int", "default": 1},
+    {"name": "eventTime", "type": "string"},
+    {"name": "source", "type": "string"},
+    {"name": "symbol", "type": "string"},
+    {"name": "venue", "type": "string"},
+    {"name": "bidPrice", "type": "double"},
+    {"name": "bidSize", "type": "long"},
+    {"name": "askPrice", "type": "double"},
+    {"name": "askSize", "type": "long"},
+    {"name": "sequence", "type": "long"},
+    {"name": "watermarkEpochMs", "type": "long"}
+  ]
+}

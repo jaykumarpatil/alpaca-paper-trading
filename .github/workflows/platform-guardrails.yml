@@ -1,0 +1,23 @@
+name: Platform Guardrails
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  validate-artifacts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate schema inventory
+        run: |
+          test -f schemas/QuoteEvent.avsc
+          test -f schemas/TradeEvent.avsc
+          test -f schemas/RiskDecisionEvent.avsc
+      - name: Validate Kafka topic plan
+        run: test -f kafka/topics.yaml
+      - name: Validate K8s guardrails
+        run: |
+          test -f k8s/base/platform-primitives.yaml
+          test -f k8s/base/backtest-worker-deployment.yaml
