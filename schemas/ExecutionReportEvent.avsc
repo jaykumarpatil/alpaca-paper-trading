@@ -1,0 +1,18 @@
+{
+  "type": "record",
+  "name": "ExecutionReportEvent",
+  "namespace": "com.alpaca.hft.events.v1",
+  "fields": [
+    {"name": "eventId", "type": "string"},
+    {"name": "eventType", "type": "string", "default": "ExecutionReportEvent"},
+    {"name": "eventVersion", "type": "int", "default": 1},
+    {"name": "eventTime", "type": "string"},
+    {"name": "source", "type": "string"},
+    {"name": "orderId", "type": "string"},
+    {"name": "brokerOrderId", "type": ["null", "string"], "default": null},
+    {"name": "symbol", "type": "string"},
+    {"name": "filledQty", "type": "long"},
+    {"name": "avgFillPrice", "type": ["null", "double"], "default": null},
+    {"name": "status", "type": "string"}
+  ]
+}

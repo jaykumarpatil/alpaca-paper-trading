@@ -1,0 +1,43 @@
+apiVersion: scheduling.k8s.io/v1
+kind: PriorityClass
+metadata:
+  name: live-trading-critical
+value: 1000000
+globalDefault: false
+description: "Critical live trading path workloads"
+---
+apiVersion: scheduling.k8s.io/v1
+kind: PriorityClass
+metadata:
+  name: risk-critical
+value: 900000
+globalDefault: false
+description: "Risk management and compliance path"
+---
+apiVersion: scheduling.k8s.io/v1
+kind: PriorityClass
+metadata:
+  name: backtest-batch
+value: 100000
+globalDefault: false
+description: "Preemptible backtesting workloads"
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: oms-pdb
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app: oms
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: risk-pdb
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app: risk
