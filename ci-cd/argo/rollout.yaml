@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: alpha-engine-service
+spec:
+  replicas: 4
+  strategy:
+    canary:
+      steps:
+        - setWeight: 1
+        - pause: {duration: 2m}
+        - setWeight: 5
+        - pause: {duration: 3m}
+        - setWeight: 25
+        - pause: {duration: 5m}
+        - setWeight: 100

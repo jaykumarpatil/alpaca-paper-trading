@@ -1,0 +1,11 @@
+package com.alpaca.hft;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class StrategyRegistryServiceApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(StrategyRegistryServiceApplication.class, args);
+    }
+}

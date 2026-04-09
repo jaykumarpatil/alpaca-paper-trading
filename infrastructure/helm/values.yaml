@@ -1,0 +1,12 @@
+global:
+  imagePullPolicy: IfNotPresent
+  kafkaBootstrapServers: kafka:9092
+services:
+  marketDataService:
+    replicaCount: 2
+  alphaEngineService:
+    replicaCount: 3
+  riskService:
+    replicaCount: 3
+  orderManagementService:
+    replicaCount: 3

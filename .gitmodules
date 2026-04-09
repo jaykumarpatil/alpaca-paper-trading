@@ -19,18 +19,9 @@
 [submodule "services/alpha-engine"]
 	path = services/alpha-engine
 	url = https://github.com/jaykumarpatil/alpaca-paper-trading-alpha-engine.git
-[submodule "services/risk-service"]
-	path = services/risk-service
-	url = https://github.com/jaykumarpatil/alpaca-paper-trading-risk-service.git
 [submodule "services/oms-service"]
 	path = services/oms-service
 	url = https://github.com/jaykumarpatil/alpaca-paper-trading-oms-service.git
-[submodule "services/portfolio-service"]
-	path = services/portfolio-service
-	url = https://github.com/jaykumarpatil/alpaca-paper-trading-portfolio-service.git
 [submodule "services/control-plane"]
 	path = services/control-plane
 	url = https://github.com/jaykumarpatil/alpaca-paper-trading-control-plane.git
-[submodule "services/backtest-worker"]
-	path = services/backtest-worker
-	url = https://github.com/jaykumarpatil/alpaca-paper-trading-backtest-worker.git
