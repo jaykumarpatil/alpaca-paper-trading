@@ -1,0 +1,18 @@
+[submodule "alpaca-postman"]
+	path = alpaca-postman
+	url = https://github.com/jaykumarpatil/alpaca-paper-trading-postman.git
+[submodule "docs"]
+	path = docs
+	url = https://github.com/jaykumarpatil/alpaca-paper-trading-docs.git
+[submodule "k8s"]
+	path = k8s
+	url = https://github.com/jaykumarpatil/alpaca-paper-trading-k8s.git
+[submodule "kafka"]
+	path = kafka
+	url = https://github.com/jaykumarpatil/alpaca-paper-trading-kafka.git
+[submodule "schemas"]
+	path = schemas
+	url = https://github.com/jaykumarpatil/alpaca-paper-trading-schemas.git
+[submodule "services"]
+	path = services
+	url = https://github.com/jaykumarpatil/alpaca-paper-trading-services.git
